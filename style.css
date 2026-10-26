@@ -1404,10 +1404,14 @@ video:focus-visible {
    ===================================================================== */
 
 /* every tab is tall enough for its tab bar to reach the top of the screen */
-.view { min-height: calc(100vh - 50px); }
+.view {
+  min-height: calc(100vh - 50px);
+}
 
 /* ---- Writings: featured article card ---- */
-.wrlist:has(.wr.feat) { border-top: 0; }
+.wrlist:has(.wr.feat) {
+  border-top: 0;
+}
 .wr.feat {
   position: relative;
   margin: 26px 0;
@@ -1415,22 +1419,93 @@ video:focus-visible {
   background: var(--sf);
   border: 1px solid var(--ru);
   border-left: 3px solid var(--ac);
-  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s;
+  transition:
+    border-color 0.3s,
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.35s;
 }
-.wr.feat:hover { border-color: var(--ac); transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22); }
-.wr.feat > .tags { margin: 0 0 14px; }
-.wr.feat h3 { font-size: clamp(1.3rem, 2.8vw, 1.7rem); margin-bottom: 14px; }
-.wr-meta { margin: 20px 0 6px; display: grid; gap: 12px; max-width: 42em; }
-.wr-meta > div { border-top: 1px solid var(--ru); padding-top: 10px; display: grid; grid-template-columns: 130px 1fr; gap: 14px; }
-.wr-meta dt { font: 600 0.66rem "JetBrains Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: var(--act); padding-top: 3px; }
-.wr-meta dd { margin: 0; color: var(--mu); line-height: 1.55; }
-.wr .wr-cta { margin: 22px 0 0; }
-.wr-btn { display: inline-flex; align-items: center; gap: 10px; position: relative; overflow: hidden; }
-.wr-btn .arr { display: inline-block; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.wr-btn:hover .arr, .wr-btn:focus-visible .arr { transform: translateX(6px); }
-.wr-btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%); transform: translateX(-120%); transition: transform 0.7s ease; }
-.wr-btn:hover::after { transform: translateX(120%); }
-@media (max-width: 640px) { .wr.feat { padding: 22px 18px; } .wr-meta > div { grid-template-columns: 1fr; gap: 4px; } }
+.wr.feat:hover {
+  border-color: var(--ac);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+.wr.feat > .tags {
+  margin: 0 0 14px;
+}
+.wr.feat h3 {
+  font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+  margin-bottom: 14px;
+}
+.wr-meta {
+  margin: 20px 0 6px;
+  display: grid;
+  gap: 12px;
+  max-width: 42em;
+}
+.wr-meta > div {
+  border-top: 1px solid var(--ru);
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 14px;
+}
+.wr-meta dt {
+  font:
+    600 0.66rem "JetBrains Mono",
+    monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--act);
+  padding-top: 3px;
+}
+.wr-meta dd {
+  margin: 0;
+  color: var(--mu);
+  line-height: 1.55;
+}
+.wr .wr-cta {
+  margin: 22px 0 0;
+}
+.wr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.wr-btn .arr {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.wr-btn:hover .arr,
+.wr-btn:focus-visible .arr {
+  transform: translateX(6px);
+}
+.wr-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.wr-btn:hover::after {
+  transform: translateX(120%);
+}
+@media (max-width: 640px) {
+  .wr.feat {
+    padding: 22px 18px;
+  }
+  .wr-meta > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
 
 /* ---- ON THE JOB: photo album on a pin-board canvas ---- */
 .album {
@@ -1445,60 +1520,209 @@ video:focus-visible {
 }
 .album::after {
   content: "Hover to zoom \00b7  Select to open";
-  position: absolute; left: 18px; bottom: 14px;
-  font: 0.64rem "JetBrains Mono", monospace; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mu);
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  font:
+    0.64rem "JetBrains Mono",
+    monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mu);
   pointer-events: none;
 }
 .album figure {
-  position: absolute; left: var(--x); top: var(--y); width: var(--w); margin: 0; z-index: 1;
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  margin: 0;
+  z-index: 1;
   transform: rotate(var(--r));
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
-  animation: drift 7s ease-in-out infinite; animation-delay: var(--d, 0s);
+  animation: drift 7s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
 }
 .album figure a {
-  display: block; padding: 7px; background: var(--bg); border: 1px solid var(--ru);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3); cursor: zoom-in;
-  transition: box-shadow 0.45s, border-color 0.3s;
+  display: block;
+  padding: 7px;
+  background: var(--bg);
+  border: 1px solid var(--ru);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+  cursor: zoom-in;
+  transition:
+    box-shadow 0.45s,
+    border-color 0.3s;
 }
-.album img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
-.album figure.t img { aspect-ratio: 3 / 5; }
-.album figure:hover, .album figure:focus-within { transform: rotate(0deg) scale(1.12); z-index: 10; animation-play-state: paused; }
-.album figure:hover a, .album figure:focus-within a { border-color: var(--ac); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
-@keyframes drift { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+.album img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.album figure.t img {
+  aspect-ratio: 3 / 5;
+}
+.album figure:hover,
+.album figure:focus-within {
+  transform: rotate(0deg) scale(1.12);
+  z-index: 10;
+  animation-play-state: paused;
+}
+.album figure:hover a,
+.album figure:focus-within a {
+  border-color: var(--ac);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+@keyframes drift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -5px;
+  }
+}
 @media (max-width: 700px) {
-  .album { aspect-ratio: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 22px 18px 46px; }
-  .album figure { position: static; width: auto; }
-  .album figure:nth-child(even) { margin-top: 26px; }
+  .album {
+    aspect-ratio: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding: 22px 18px 46px;
+  }
+  .album figure {
+    position: static;
+    width: auto;
+  }
+  .album figure:nth-child(even) {
+    margin-top: 26px;
+  }
 }
 
 /* ---- Motion: minimal and calm ---- */
-@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-@keyframes grow { from { transform: scaleX(0); } }
-.hero > div > .eb { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
-.hero > div > .eb::before { transform-origin: left; animation: grow 0.8s 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
-.hero > div > h1 { animation: rise 0.8s 0.08s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
-.hero > div > .lead { animation: rise 0.8s 0.2s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
-.hero > div > .btn { animation: rise 0.8s 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
-.hero > div > .btn + .btn { animation-delay: 0.4s; }
-nav.tabs { animation: rise 0.8s 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
-header.top { animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
-nav.tabs a { transition: color 0.25s, border-color 0.25s; }
-.btn { transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s, background 0.25s, color 0.25s, border-color 0.25s; }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(249, 178, 51, 0.18); }
-.btn:active { transform: translateY(0); }
-.soc a { transition: color 0.2s, border-color 0.2s, transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.soc a:hover { transform: translateY(-3px); }
-#th { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.2s, border-color 0.2s; }
-.pic { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.pic:hover { transform: scale(1.04) rotate(-1deg); }
-.job h3 { transition: color 0.25s; }
-.job:hover h3 { color: var(--act); }
-.tag { transition: color 0.2s, border-color 0.2s; }
-.tag:hover { color: var(--act); border-color: var(--ac); }
-.prog { position: fixed; top: 0; left: 0; width: 100%; height: 2px; background: var(--ac); transform-origin: 0 50%; transform: scaleX(0); z-index: 50; pointer-events: none; }
-.rv { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.rv.in { opacity: 1; transform: none; }
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+.hero > div > .eb {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.hero > div > .eb::before {
+  transform-origin: left;
+  animation: grow 0.8s 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.hero > div > h1 {
+  animation: rise 0.8s 0.08s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.hero > div > .lead {
+  animation: rise 0.8s 0.2s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.hero > div > .btn {
+  animation: rise 0.8s 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.hero > div > .btn + .btn {
+  animation-delay: 0.4s;
+}
+nav.tabs {
+  animation: rise 0.8s 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+header.top {
+  animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+nav.tabs a {
+  transition:
+    color 0.25s,
+    border-color 0.25s;
+}
+.btn {
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.25s,
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(249, 178, 51, 0.18);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.soc a {
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.soc a:hover {
+  transform: translateY(-3px);
+}
+#th {
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+    color 0.2s,
+    border-color 0.2s;
+}
+.pic {
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.pic:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+.job h3 {
+  transition: color 0.25s;
+}
+.job:hover h3 {
+  color: var(--act);
+}
+.tag {
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.tag:hover {
+  color: var(--act);
+  border-color: var(--ac);
+}
+.prog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--ac);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 50;
+  pointer-events: none;
+}
+.rv {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
 @media (prefers-reduced-motion: reduce) {
-  .album figure { animation: none; }
-  .album figure:hover, .album figure:focus-within { transform: rotate(0deg) scale(1.04); }
+  .album figure {
+    animation: none;
+  }
+  .album figure:hover,
+  .album figure:focus-within {
+    transform: rotate(0deg) scale(1.04);
+  }
 }
